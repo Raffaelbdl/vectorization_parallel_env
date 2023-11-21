@@ -215,7 +215,7 @@ class SubProcVecParallelEnv(VecParallelEnv):
 
     def step_async(self, actions):
         unstack_actions = []
-        for i in range(self.num_agents):
+        for i in range(len(self.parent_conns)):
             unstack_actions.append(
                 {agent: action[i] for agent, action in actions.items()}
             )
